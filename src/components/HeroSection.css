@@ -1,0 +1,143 @@
+/* Estilos para la Sección Héroe */
+.hero-section {
+  background: url("/images/nuevo1.jpg") no-repeat center top/cover;
+  color: var(--text-color);
+  text-align: center;
+  padding: 100px 0;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1; /* Asegura que la sección héroe esté por encima de cualquier otro elemento que pudiera querer superponerse */
+}
+
+/* El overlay oscuro que ya teníamos para que el texto resalte */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* Oscurece la imagen para que el texto resalte */
+  z-index: -1; /* Detrás del contenido, pero encima de la imagen */
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px; /* Altura del gradiente, puedes ajustarla */
+  /* Este gradiente va de transparente a un color que se alinea con la siguiente sección */
+  background: linear-gradient(
+    to top,
+    var(--secondary-color) 0%,
+    transparent 100%
+  );
+  z-index: 0; /* Asegura que el gradiente esté entre el overlay y el contenido principal */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Navbar dentro del Hero */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  position: absolute; /* Posicionarlo en la parte superior del hero */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10; /* Asegurar que esté por encima de todo */
+}
+
+.navbar .logo img {
+  height: 200px; /* Ajusta el tamaño del logo */
+  margin-left: 20px; /* Espacio desde el borde */
+}
+
+.hero-content {
+  max-width: 800px;
+  /* margin-top: 50px; No necesario con position absolute para navbar */
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-family: "Oswald", sans-serif;
+  font-size: 3.8em; /* Un poco más grande */
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+  font-size: 1.4em; /* Un poco más grande */
+  margin-bottom: 40px;
+  color: var(--light-text);
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1em; /* Más legible */
+}
+
+.btn-primary:hover {
+  background-color: #ffd700;
+}
+
+/* RESPONSIVE DESIGN para Hero Section */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 450px;
+    padding: 80px 0;
+  }
+  .hero-content h1 {
+    font-size: 2.8em;
+  }
+  .hero-content p {
+    font-size: 1.1em;
+  }
+  .btn-primary {
+    padding: 12px 25px;
+    font-size: 1em;
+  }
+  .navbar .logo img {
+    height: 50px;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2em;
+  }
+  .hero-content p {
+    font-size: 0.9em;
+  }
+  .btn-primary {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+}

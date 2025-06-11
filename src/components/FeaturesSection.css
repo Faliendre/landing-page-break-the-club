@@ -1,0 +1,112 @@
+/* Estilos para la sección de Características */
+.features-section {
+  background-color: var(
+    --secondary-color
+  ); /* El color de fondo de esta sección */
+  padding: 80px 0;
+  text-align: center;
+  position: relative; /* Necesario para posicionar el ::after */
+  z-index: 1; /* Para asegurar que el gradiente de abajo esté por encima del fondo del footer si se superpone */
+}
+/* NUEVO: Gradiente en la parte inferior de la sección de características */
+.features-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px; /* Altura del gradiente, puedes ajustarla (ej. 100px, 150px) */
+  /* Este gradiente va de transparente a un color que se alinea con el footer (#111) */
+  background: linear-gradient(
+    to top,
+    #111 0%,
+    transparent 100%
+  ); /* Usamos #111 directamente */
+  z-index: 2; /* Asegura que este gradiente esté por encima del contenido de la sección y se vea */
+}
+.features-section {
+  padding-bottom: 80px; /* Ya lo tenemos */
+  /* Si el gradiente es muy alto y oculta contenido, podrías necesitar ajustar este padding */
+}
+
+.features-section h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 2.5em;
+  margin-bottom: 60px;
+  color: var(--primary-color);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  ); /* Columnas responsivas */
+  gap: 40px; /* Espacio entre los elementos */
+}
+
+.feature-item {
+  background-color: var(--dark-bg);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.feature-item .feature-image {
+  width: 100%; /* La imagen ocupará todo el ancho del item */
+  height: 280px; /* Altura fija para que todas las imágenes tengan el mismo tamaño visual */
+  object-fit: cover; /* ¡Aquí la magia para tus imágenes verticales! */
+  object-position: center; /* Asegura que la parte central de la imagen sea visible */
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.feature-item .feature-icon {
+  width: 80px; /* Tamaño para iconos si no son fotos */
+  height: 80px;
+  margin-bottom: 20px;
+  /* Puedes añadir más estilos si es un SVG o un icono PNG */
+}
+
+.feature-item h3 {
+  font-family: "Oswald", sans-serif;
+  color: var(--primary-color);
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.feature-item p {
+  color: var(--light-text);
+  font-size: 1em;
+  line-height: 1.7;
+}
+
+/* RESPONSIVE DESIGN para Features Section */
+@media (max-width: 768px) {
+  .features-section h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+  }
+
+  .feature-item {
+    padding: 25px;
+  }
+
+  .feature-item .feature-image {
+    height: 200px;
+  }
+
+  .feature-item h3 {
+    font-size: 1.5em;
+  }
+}

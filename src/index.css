@@ -1,0 +1,89 @@
+:root {
+  --primary-color: #daa520; /* Dorado */
+  --secondary-color: #2c3e50;
+  --dark-bg: #1a1a1a;
+  --text-color: #f8f8f8;
+  --light-text: #ddd;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif; /* Ya importaremos esto */
+  background-color: var(--dark-bg);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Puedes quitar todo lo demás de App.css y dejarlo vacío o borrarlo si no lo necesitas */
+/* Aquí podríamos añadir algo de CSS para que el h1 de App.tsx sea visible */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-top: 50px;
+}
+/* En src/index.css */
+
+footer {
+  background-color: #111;
+  color: var(--light-text);
+  padding: 30px 0;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.footer-section {
+  text-align: left;
+  max-width: 300px; /* Para que no se extiendan demasiado */
+}
+
+.footer-section h3 {
+  font-family: "Oswald", sans-serif;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.footer-section a {
+  color: var(--primary-color);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li {
+  margin-bottom: 5px;
+}
+
+/* Responsive design para el footer */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-section {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
